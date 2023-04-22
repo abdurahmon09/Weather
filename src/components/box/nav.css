@@ -1,0 +1,139 @@
+*::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+}
+*::-webkit-scrollbar-thumb {
+    background: #bdb8b8;
+    border-radius: 10px;
+}
+
+.nav {
+    position: absolute;
+    height: 100%;
+    min-width: 32rem;
+    top: 0;
+    right: 0;
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,.3);  
+    padding: 6rem 4rem;
+    overflow: hidden;
+}
+
+.locations {
+    position: relative;
+    height: 50%;
+}
+
+.cities {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    gap: 2rem;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.cities button {
+    background: transparent;
+    border: unset;
+    text-align: left;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 2.5rem;
+    padding: 3rem 0;
+}
+
+.details div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+
+.details::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 2px;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.search {
+    position: absolute;
+    top: -5rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.search input {
+    height: 3rem;
+    outline: unset;
+    border: unset;
+    border-bottom: 2px solid #c4b8b8;
+    padding: 8px;
+    width: 100%;
+    color: #fff;
+    font-size: 17px;
+    background: none;
+    position: relative;
+}
+
+.search input::placeholder {
+    color: #c4b8b8;
+}
+.search button {
+    display: flex;
+}
+.search img {
+    height: 4rem;
+}
+
+.error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    color: red;
+}
+
+@media  (max-width: 1200px) {
+    p, .search input{
+        font-size: 15px !important;
+    }
+    .details, .cities, .search {
+        gap: 1.2rem;
+    }
+    .nav {
+        min-width: unset;
+    }
+    .search img {
+        height: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        position: sticky;
+        padding-bottom: 0;
+    }
+    .cities {
+        height: 7rem;
+    }
+}
